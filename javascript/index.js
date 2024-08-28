@@ -63,13 +63,13 @@ const binarySearch = (key,low,high) => {
         return;
     }
     if(low > high){
-        updatesComponent.innerHTML += `<h3>${key} was not found in the list</h3>`;
+        updatesComponent.innerHTML += `<h3><b>${key}</b> was not found in the list</h3>`;
         searchComponent.style.display = "flex";
         return;
     }
-    updatesComponent.innerHTML += `<p>Low index: ${low}, high index:${high}<br/>
-                                mid index: (${low}+${high})/2 = ${mid}</br>
-                                the middle element: ${arrayItems[mid]}</p>`
+    updatesComponent.innerHTML += `<p>Low index: <b>${low}</b>, high index:<b>${high}</b><br/>
+                                mid index: (</b>${low}+${high})</b>/2 = <b>${mid}</b></br>
+                                the middle element: <b>${arrayItems[mid]}</b></p>`
     document.getElementById(mid).style.backgroundColor = "green";
     setTimeout(() => {
         if(key == arrayItems[mid]){
@@ -80,12 +80,12 @@ const binarySearch = (key,low,high) => {
         }
         else if(key > arrayItems[mid]){
             //focus on the right side
-            updatesComponent.innerHTML += `<p>${key} is greater than ${arrayItems[mid]}, focusing on the right side of this number...</p>`;
+            updatesComponent.innerHTML += `<p><b>${key}</b> is greater than <b>${arrayItems[mid]}</b>, focusing on the right side of this number...</p>`;
             binarySearch(key,mid+1,high);
         }
         else if(key < arrayItems[mid]){
             //focus on the left side;
-            updatesComponent.innerHTML += `<p>${key} is less than ${arrayItems[mid]}, focusing on the left side of this number...</p>`;
+            updatesComponent.innerHTML += `<p><b>${key}</b> is less than <b>${arrayItems[mid]}</b>, focusing on the left side of this number...</p>`;
             binarySearch(key,low, mid-1);
         }
         document.getElementById(mid).style.backgroundColor = "#fff";
