@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search Simulator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        html,body{
+            all: unset;
+            min-height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(#fff,#eee);
+        }
+        main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 90svw;
+        }
+        #arrayContainer{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem;
+        }
+        .arrayItem{
+            border-radius: 10px;
+            padding: 1rem;
+            border: 1px #ddd solid;
+            transition: all ease-in-out 0.3s;
+        }
+        .arrayItem:hover{
+            background-color: #eee;
+            color: royalblue;
+            border: 1px solid royalblue;
+        }
+        .info p{
+            all: unset;
+            display: block;
+        }
+        input, button{
+            all: unset;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 0.5rem;
+            border: #ddd 1px solid;
+        }
+        input:hover, input:focus{
+            outline: 1px solid royalblue;
+        }
+        button{
+            background-color: royalblue;
+            color: #fff;
+            transition: all ease-in-out 0.3s;
+            display: flex;
+            justify-content: center;
+        }
+        button:hover{
+            background-color:rgb(7, 38, 129)
+        }
+        #updatesComponent{
+            margin-top: 1rem;
+            padding: 1rem;
+            width: 90%;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+        
+        #addItemComponent,#searchComponent{
+            margin-top: 1rem;
+            padding: 1rem;
+            width: 80svw;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.4s ease-in-out;
+            animation: appear 0.5s     ease-in-out;
+        }
+        #addItemComponent{
+            display: none;
+        }
+        form{
+            display: grid;
+            width: 90%;
+        }
+        @media screen and (min-width: 1000px) {
+            #addItemComponent,#searchComponent{
+                max-width: 40svw;
+            }
+            
+        }
+
+        @keyframes appear {
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h2>Simulate Binary Search</h2>
+        <div class="info">
+            <p>To add an item, click on the plus button below or <a href="javascript:void(0)" onclick="displayAdd()">click here</a></p>
+            <p>To remove an item, <b>double click</b> on it...</p>    
+        </div>
+        <div id="arrayContainer">
+        </div>
+        <div id="addItemComponent">
+            <span style="display: flex;align-items: center;justify-content: space-between;width: 90%;">
+                <h3>Add a new Item</h3>
+                <i onclick="displayAdd()" class="fa fa-xmark" style="font-size: 1.5rem;color:red"></i>
+            </span>
+            <form  action="javascript:void(0)" onsubmit="addItem()">
+                <input id="txtAddNumber" type="number" required placeholder="Enter number..."/>
+                <button type="button" onclick="addItem()"><i class="fa fa-add"></i> Add</button>    
+            </form>            
+        </div>
+        <div id="searchComponent">
+            <h3>Search for:</h3>
+            <form action="javascript:void(0)" onsubmit="startSearch()">
+                <input id="txtNumber" type="number" required placeholder="Enter number..."/>
+                <button type="button" onclick="startSearch()">Start search</button>    
+            </form>
+        </div>
+        <div id="updatesComponent">
+            
+        </div>
+    </main>
+    <script src="javascript/index.js"></script>
+</body>
+</html>
