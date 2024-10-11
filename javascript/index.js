@@ -48,14 +48,14 @@ const startSearch = () => {
     let num = txtNumber.value;
     arrayContainer.innerHTML = "";
     updatesComponent.innerHTML = `<p>Searching for <b>${num}</b>...</p><hr/>`;
-    updatesComponent.innerHTML += `
+    /*updatesComponent.innerHTML += `
         <h4>Legend</h4>
         <div style="display: grid;grid-template-columns: repeat(2,1fr)">
             <span class="inline"><div class="arrayItem" style="background-color: yellow"></div><p>Lower bound</p></span>
             <span class="inline"><div class="arrayItem" style="background-color: green"></div><p>Middle bound</p></span>
             <span class="inline"><div class="arrayItem" style="background-color: blue"></div><p>Upper bound</p></span>
             <span class="inline"><div class="arrayItem" style="background-color: red"></div><p>Found</p></span>
-        </div><hr/>`;
+        </div><hr/>`;*///its messy
     displayArray();
     searchComponent.style.display = "none";
     binarySearch(num,0,arrayItems.length-1);
@@ -81,8 +81,8 @@ const binarySearch = (key,low,high) => {
                                 the middle element: <b>${arrayItems[mid]}</b></p>`;
 
     document.getElementById(mid).style.backgroundColor = "green";
-    document.getElementById(low).style.backgroundColor = "yellow";
-    document.getElementById(high).style.backgroundColor = "blue";
+    //document.getElementById(low).style.backgroundColor = "yellow";
+    //document.getElementById(high).style.backgroundColor = "blue";
     setTimeout(() => {
         if(key == arrayItems[mid]){
             document.getElementById(mid).style.backgroundColor = "red";
